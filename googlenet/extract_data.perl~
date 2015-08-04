@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+
+$file = "caffe-train.log";
+open my $info, $file or die("Could not open file.");
+$outfile = "google_val.csv";
+open(my $fh, '>', $outfile) or die "Could not open file '$outfile' $!";
+while (my $line = <$info>) 
+{
+	if ($line =~ m/.*Iteration\s(\d+),\sTesting\snet/)
+	{
+		$testing = 1;
+		$iter = $1;
+	}
+
+	if ($testing)
+	{
+		if ($line =~ m/.*Test\snet\soutput\s#8:\sloss3\/top-5\s=\s(.*)/)
+		{
+			$accuracy = $1;
+			$testing = 0;
+		}
+	}
+	
+	if ($line =~ m/.*?\d{1,3}000,\slr\s=\s(.*)/) 
+	{
+		$lr = $1;
+	}
+
+	if ($line =~ m/.*?(\d{1,3}000),\sloss\s=\s(.*)/) 
+	{
+		$iter_number = $1;
+		$loss = $2;
+		print "$iter_number,$accuracy,$loss\n";
+	}
+}
+close $fh; close $info;

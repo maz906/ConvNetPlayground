@@ -1,0 +1,14 @@
+$file = 'caffe-train.log';
+open my $info, $file or die("Could not open file.");
+while (my $line = <$info>) 
+{
+	if ($line =~ m/.*accuracy\s=\s(.*)/)
+	{
+		print "$1\n"
+	}
+	
+	if ($line =~ m/.*\d{1,3}000,\sloss\s=\s(.*)/) 
+	{
+		print "$line"
+	}
+}
