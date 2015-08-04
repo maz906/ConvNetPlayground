@@ -1,8 +1,4 @@
-test
+#ConvNetPlayground Readme
 ====
 
-fkdsjflkdsajflkdsajflkdsajff
-sf
-sdf
-a
-eh...fdsafdsfdsafds aoeuhtns dvorak lol.
+Temporary storage for filter visualization webpages.
