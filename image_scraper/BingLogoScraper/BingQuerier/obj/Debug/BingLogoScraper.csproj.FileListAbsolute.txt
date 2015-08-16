@@ -1,0 +1,16 @@
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingLogoScraper.csprojResolveAssemblyReference.cache
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.dll.config
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.dll
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\AbstractLogoScraper.dll
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\AbstractLogoScraper.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingQuerier.dll
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingQuerier.pdb
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingLogoScraper.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingQuerier.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\obj\Debug\BingQuerier.pdb
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.dll.config
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.pdb
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\AbstractLogoScraper.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\AbstractLogoScraper.pdb

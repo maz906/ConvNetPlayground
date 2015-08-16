@@ -1,0 +1,49 @@
+<group>
+<ul class='breadcrumb'><li><a href='%pathto:mdoc;'>Index</a></li><li><a href='%pathto:vl_frame2oell;'>Prev</a></li><li><a href='%pathto:vl_phow;'>Next</a></li></ul><div class="documentation"><p>
+D = <a href="%pathto:vl_liop;">VL_LIOP</a>(I) compute the Liop descriptor of an image I.
+I is a square patch of an odd side length. Pixels belonging
+to the area of incircle of the patch will be used for
+computation. D is a column vector containing the liop
+descriptor of I. Implementation according to [1].
+</p><p>
+Use <a href="%pathto:vl_covdet;">VL_COVDET</a>() for computation of Liop descriptor from features frames.
+</p><p>
+<a href="%pathto:vl_liop;">VL_LIOP</a>() accepts the following options:
+</p><dl><dt>
+Neighbours
+<span class="defaults">[4]</span></dt><dd><p>
+Set the number of neighbours used for computation of permutation index.
+</p></dd><dt>
+Bins
+<span class="defaults">[6]</span></dt><dd><p>
+Set the number of bins to which the points will be quintized according
+to their intensity.
+</p></dd></dl><p>
+(the final descriptor will be of length factorial(neighbours)*bins)
+</p><dl><dt>
+Radius
+<span class="defaults">[5]</span></dt><dd><p>
+Set the distance between a point and it's neighbours.
+</p></dd><dt>
+WeightThreshold
+<span class="defaults">[see below]</span></dt><dd><p>
+Set the weight threshold (i.e. how big must be the difference between
+intensities of all neighbouring points so that they influence descriptor
+value significantly).
+If not specified, the threshold is set according to the intensity values
+range:
+</p><pre>
+      1) all values &lt; 1    -&gt; [0.02]
+      2) all values &lt; 255  -&gt; [2]
+      3) other             -&gt; [maxIntensityValue * 0.02]
+</pre></dd><dt>
+Verbose
+</dt><dd><p>
+If specified, be verbose
+</p></dd><dt>
+REFERENCES
+</dt><dd><p>
+[1] Z. Wang, B. Fan, F. Wu. Local Intensity Order Pattern for feature
+</p><pre>
+    description. In ICCV, 2011
+</pre></dd></dl></div></group>

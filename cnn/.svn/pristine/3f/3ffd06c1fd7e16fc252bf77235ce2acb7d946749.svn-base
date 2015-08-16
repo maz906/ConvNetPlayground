@@ -1,0 +1,12 @@
+function rename = Rename(imgName)
+% return 1 if the image is readable and resizable, otherwise return -1
+fprintf('Renaming %s ...', imgName);
+delete(imgName);
+[pathstr, name, ~] = fileparts(imgName);
+rename = [pathstr, '/', name, '.jpg'];
+try
+    movefile(imgName, rename);
+catch
+end
+end
+

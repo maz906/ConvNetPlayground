@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractLogoScraper", "AbstractLogoScraper\AbstractLogoScraper.csproj", "{51750909-7B61-4F7F-AC27-9D4F6E5E26DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingLogoScraper", "..\BingLogoScraper\BingQuerier\BingLogoScraper.csproj", "{805A9F97-9F17-4D34-8E8A-F15216CC5758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrLogoScraper", "..\FlickrLogoScraper\FlickrQuerier\FlickrLogoScraper.csproj", "{C00B6921-70B1-42CF-BBE9-213A258F30FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterScraper", "ConsoleApplication1\MasterScraper.csproj", "{D5B4BF6D-A940-4C98-99CC-6BA56C43DF31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonLogoScraper", "..\AmazonLogoScraper\AmazonLogoScraper\AmazonLogoScraper.csproj", "{B6470209-2726-425E-846D-D71F9FE4EF3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51750909-7B61-4F7F-AC27-9D4F6E5E26DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51750909-7B61-4F7F-AC27-9D4F6E5E26DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51750909-7B61-4F7F-AC27-9D4F6E5E26DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51750909-7B61-4F7F-AC27-9D4F6E5E26DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805A9F97-9F17-4D34-8E8A-F15216CC5758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805A9F97-9F17-4D34-8E8A-F15216CC5758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805A9F97-9F17-4D34-8E8A-F15216CC5758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805A9F97-9F17-4D34-8E8A-F15216CC5758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00B6921-70B1-42CF-BBE9-213A258F30FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00B6921-70B1-42CF-BBE9-213A258F30FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00B6921-70B1-42CF-BBE9-213A258F30FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00B6921-70B1-42CF-BBE9-213A258F30FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B4BF6D-A940-4C98-99CC-6BA56C43DF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B4BF6D-A940-4C98-99CC-6BA56C43DF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B4BF6D-A940-4C98-99CC-6BA56C43DF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B4BF6D-A940-4C98-99CC-6BA56C43DF31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6470209-2726-425E-846D-D71F9FE4EF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6470209-2726-425E-846D-D71F9FE4EF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6470209-2726-425E-846D-D71F9FE4EF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6470209-2726-425E-846D-D71F9FE4EF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

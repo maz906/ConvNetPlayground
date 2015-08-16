@@ -1,0 +1,7 @@
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\bin\Debug\BingQuerier.exe.config
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\obj\Debug\BingQuerier.exe
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\obj\Debug\BingQuerier.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\bin\Debug\BingQuerier.exe
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\bin\Debug\BingQuerier.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingQuerier\BingQuerier\obj\Debug\BingQuerier.csprojResolveAssemblyReference.cache
+C:\Users\rips\Desktop\rips_2015\image_scraper\BingLogoScraper\BingQuerier\bin\Debug\BingQuerier.exe.config

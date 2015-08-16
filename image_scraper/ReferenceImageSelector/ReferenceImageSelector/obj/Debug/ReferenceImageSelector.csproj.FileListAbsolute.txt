@@ -1,0 +1,26 @@
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.exe.config
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.exe
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.pdb
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.csprojResolveAssemblyReference.cache
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\MainWindow.baml
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\MainWindow.g.cs
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\App.g.cs
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector_MarkupCompile.cache
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.g.resources
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.Properties.Resources.resources
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.csproj.GenerateResource.Cache
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.exe
+c:\users\rips\documents\visual studio 2013\Projects\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.pdb
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.exe.config
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.exe
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.exe
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\bin\Debug\ReferenceImageSelector.pdb
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.csprojResolveAssemblyReference.cache
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\MainWindow.baml
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\MainWindow.g.cs
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\App.g.cs
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector_MarkupCompile.cache
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.g.resources
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.Properties.Resources.resources
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.csproj.GenerateResource.Cache
+C:\Users\rips\Desktop\new_rips\image_scraper\ReferenceImageSelector\ReferenceImageSelector\obj\Debug\ReferenceImageSelector.pdb

@@ -1,0 +1,1 @@
+/home/sun/logo-code/book-search/src/CMakeFiles/trainDemo.dir

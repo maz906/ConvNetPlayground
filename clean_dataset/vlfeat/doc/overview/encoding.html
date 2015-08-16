@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Favicon -->
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="icon"></link>
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="shortcut icon"></link>
+
+  <!-- Stylesheets -->
+  <link href="../web.css" type="text/css" rel="stylesheet"></link>
+  <link href="../pygmentize.css" type="text/css" rel="stylesheet"></link>
+  <style xml:space="preserve">
+    /* fixes a conflict between Pygmentize and MathJax */
+    .MathJax .mo, .MathJax .mi {color: inherit ! important}
+  </style>
+  <title>VLFeat - Tutorials - Encodings</title>
+  
+
+  <!-- Scripts-->
+  
+
+  <!-- Google Custom Search -->
+  <script xml:space="preserve">
+    (function() {
+    var cx = '003215582122030917471:oq23albfeam';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+
+  <!-- Google Analytics -->
+  <script xml:space="preserve" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4936091-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+
+ <!-- Body Start -->
+ <body>
+  <div id="header-section">
+    <div id="header">
+      <!-- Google CSE Search Box -->
+      <div id="google" class="gcse-searchbox-only" data-resultsUrl="http://www.vlfeat.org/search.html"></div>
+      <h1><a shape="rect" href="../index.html" class="plain"><span id="vlfeat">VLFeat</span><span id="dotorg">.org</span></a></h1>
+    </div>
+  </div>
+  <div id="headbanner-section">
+    <div id="headbanner">
+      Tutorials - Encodings
+    </div>
+  </div>
+  <div id="content-section">
+    <div id="content-wrapper">
+      <div id="sidebar"> <!-- Navigation Start -->
+        <ul>
+<li><a href="../index.html">Home</a>
+</li>
+<li><a href="../download.html">Download</a>
+</li>
+<li><a href="../doc.html">Documentation</a>
+</li>
+<li><a href="tut.html">Tutorials</a>
+<ul>
+<li><a href="covdet.html">Covdet</a>
+</li>
+<li><a href="hog.html">HOG</a>
+</li>
+<li><a href="sift.html">SIFT</a>
+</li>
+<li><a href="dsift.html">DSIFT/PHOW</a>
+</li>
+<li><a href="liop.html">LIOP</a>
+</li>
+<li><a href="mser.html">MSER</a>
+</li>
+<li><a href="gmm.html">GMM</a>
+</li>
+<li><a href="kmeans.html">KMeans</a>
+</li>
+<li><a href="encoding.html" class='active' >Encodings</a>
+</li>
+<li><a href="ikm.html">IKM</a>
+</li>
+<li><a href="hikm.html">HIKM</a>
+</li>
+<li><a href="aib.html">AIB</a>
+</li>
+<li><a href="quickshift.html">Quick shift</a>
+</li>
+<li><a href="slic.html">SLIC</a>
+</li>
+<li><a href="kdtree.html">kd-tree</a>
+</li>
+<li><a href="imdisttf.html">Distance transf.</a>
+</li>
+<li><a href="utils.html">Utils</a>
+</li>
+<li><a href="svm.html#tut.svm">SVM</a>
+</li>
+<li><a href="plots-rank.html">Plots: rank</a>
+</li>
+</ul></li>
+<li><a href="../applications/apps.html">Applications</a>
+</li>
+</ul>
+
+      </div> <!-- sidebar -->
+      <div id="content">
+          
+
+<p>The ongoing lines describe how to use <b>Fisher</b> and 
+<b>VLAD</b> encodings.
+</p>
+
+<p>
+The encoding methods are generally used for quantizing a set of vectors 
+with respect to a vocabulary model (obtained using Gaussian mixture estimation, 
+KMeans clustering, ...).
+</p>
+
+<ul>
+ <li><a shape="rect" href="encoding.html#tut.encoding.fisher">Fisher encoding</a></li>
+ <li><a shape="rect" href="encoding.html#tut.encoding.vlad">VLAD encoding</a></li>
+</ul>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h1 id="tut.encoding.fisher">Fisher encoding</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>
+The Fisher encoding is best used with a particular estimated gaussian mixture model.
+Using the obtained means, sigmas and variances one can compute a 
+fisher vector. First we initialize random data and train the GMM model 
+(please see the <a shape="rect" href="../overview/gmm.html">GMM</a> tutorial page
+to find info on GMM usage).
+</p>
+
+<pre>
+N         = 5000 ;
+dimension = 2 ;
+dataLearn = rand(dimension,N) ;
+
+numClusters = 30 ;
+[means, sigmas, weights] = vl_gmm(dataLearn, numClusters);
+</pre>
+
+Next we initialize another random set of vectors,
+which should be encoded with respect to the model,
+we have just estimated.
+
+<pre>
+Nencode = 1000;
+dataEncode = rand(dimension,Nencode);
+</pre>
+
+The fisher encoding <code>enc</code> of this new set can be easily obtained by pluging
+the <code>vl_gmm</code> outputs to the
+<code>vl_fisher</code> function:
+
+<pre>
+enc = vl_fisher(dataEncode, means, sigmas, weights);
+</pre>
+
+The <code>enc</code> is our final fisher vector.
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h1 id="tut.encoding.vlad">VLAD encoding</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>
+The <b>V</b>ector of <b>L</b>inearly <b>A</b>gregated <b>D</b>escriptors
+encodes the features in a slightly different way. Simillar to 
+the Fisher encoding, the VLAD encoding collaborates with
+a clustering technique. In the case of VLAD, this method is 
+KMeans clustering.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h3 id="tut.encoding.vlad.kmeans">KMeans + VLAD</h3>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>
+Let's first, as we did in the Fisher section,
+make a random dataset <code>dataLearn</code> and cluster
+it using KMeans (<a shape="rect" href="../overview/kmeans.html">KMeans</a> tutorial).
+Also we will need the dataset we want to encode, so we create one.
+</p>
+
+<pre>
+N         = 5000 ;
+dimension = 2 ;
+dataLearn = rand(dimension,N) ;
+
+numClusters = 30 ;
+centers = vl_kmeans(dataLearn, numClusters);
+
+Nencode = 1000;
+dataEncode = rand(dimension,Nencode);
+</pre>
+
+<p>
+The <code>vl_vlad</code> function accepts centers of clusters,
+data we want to encode and also assignments (which are &quot;hard&quot; in the case of KMeans)  
+of each vector to a cluster. The assignments could be obtained by the
+vl_kdtree_query function, which quickly finds the nearest cluster center
+(stored in <code>centers</code>) for each <code>dataEncode</code> vector.
+Note that before running queries to KD-Tree it must be built
+using the <code>vl_kdtreebuild</code> function.
+</p>
+
+<pre>
+kd_tree = vl_kdtreebuild(centers) ;
+assign = vl_kdtreequery(kd_tree, centers, dataEncode) ;
+</pre>
+
+<p>
+Now we have in the <code>assign</code> variable indices of nearest centers
+to each <code>dataEncode</code> vector. The next step is 
+converting assign vector to the right format, which
+is accepted by <code>vl_vlad</code>.
+</p>
+
+<pre>
+assignments = zeros(numClusters,Nencode);
+assignments(sub2ind(size(assignments),assign,1:length(assign))) = 1;
+</pre>
+
+<p>
+After this, we are ready to proceed to calculate
+the final VLAD vector <code>enc</code>.
+</p>
+
+<pre>
+enc = vl_vlad(dataEncode,centers,assignments);
+</pre>
+
+
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div> <!-- content-section -->
+  <div id="footer-section">
+    <div id="footer">
+      &copy; 2007-13 The authors of VLFeat
+    </div> <!-- footer -->
+  </div> <!-- footer section -->
+ </body>
+ <!-- Body ends -->
+</html>
+
+ 

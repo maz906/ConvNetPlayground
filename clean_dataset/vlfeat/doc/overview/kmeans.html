@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Favicon -->
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="icon"></link>
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="shortcut icon"></link>
+
+  <!-- Stylesheets -->
+  <link href="../web.css" type="text/css" rel="stylesheet"></link>
+  <link href="../pygmentize.css" type="text/css" rel="stylesheet"></link>
+  <style xml:space="preserve">
+    /* fixes a conflict between Pygmentize and MathJax */
+    .MathJax .mo, .MathJax .mi {color: inherit ! important}
+  </style>
+  <title>VLFeat - Tutorials - KMeans</title>
+  
+
+  <!-- Scripts-->
+  
+
+  <!-- Google Custom Search -->
+  <script xml:space="preserve">
+    (function() {
+    var cx = '003215582122030917471:oq23albfeam';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+
+  <!-- Google Analytics -->
+  <script xml:space="preserve" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4936091-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+
+ <!-- Body Start -->
+ <body>
+  <div id="header-section">
+    <div id="header">
+      <!-- Google CSE Search Box -->
+      <div id="google" class="gcse-searchbox-only" data-resultsUrl="http://www.vlfeat.org/search.html"></div>
+      <h1><a shape="rect" href="../index.html" class="plain"><span id="vlfeat">VLFeat</span><span id="dotorg">.org</span></a></h1>
+    </div>
+  </div>
+  <div id="headbanner-section">
+    <div id="headbanner">
+      Tutorials - KMeans
+    </div>
+  </div>
+  <div id="content-section">
+    <div id="content-wrapper">
+      <div id="sidebar"> <!-- Navigation Start -->
+        <ul>
+<li><a href="../index.html">Home</a>
+</li>
+<li><a href="../download.html">Download</a>
+</li>
+<li><a href="../doc.html">Documentation</a>
+</li>
+<li><a href="tut.html">Tutorials</a>
+<ul>
+<li><a href="covdet.html">Covdet</a>
+</li>
+<li><a href="hog.html">HOG</a>
+</li>
+<li><a href="sift.html">SIFT</a>
+</li>
+<li><a href="dsift.html">DSIFT/PHOW</a>
+</li>
+<li><a href="liop.html">LIOP</a>
+</li>
+<li><a href="mser.html">MSER</a>
+</li>
+<li><a href="gmm.html">GMM</a>
+</li>
+<li><a href="kmeans.html" class='active' >KMeans</a>
+</li>
+<li><a href="encoding.html">Encodings</a>
+</li>
+<li><a href="ikm.html">IKM</a>
+</li>
+<li><a href="hikm.html">HIKM</a>
+</li>
+<li><a href="aib.html">AIB</a>
+</li>
+<li><a href="quickshift.html">Quick shift</a>
+</li>
+<li><a href="slic.html">SLIC</a>
+</li>
+<li><a href="kdtree.html">kd-tree</a>
+</li>
+<li><a href="imdisttf.html">Distance transf.</a>
+</li>
+<li><a href="utils.html">Utils</a>
+</li>
+<li><a href="svm.html#tut.svm">SVM</a>
+</li>
+<li><a href="plots-rank.html">Plots: rank</a>
+</li>
+</ul></li>
+<li><a href="../applications/apps.html">Applications</a>
+</li>
+</ul>
+
+      </div> <!-- sidebar -->
+      <div id="content">
+          
+
+<p>The ongoing lines describe how to use <b>KMeans</b> algorithm
+implemented in <b>VlFeat</b>. A user can switch between several variations
+of the original algorithm (proposed by Lloyd), to improve the
+speed of convergence (sometimes at the expense of robustness).
+</p>
+
+<ul>
+ <li><a shape="rect" href="kmeans.html#tut.kmeans.introduction">KMeans basics</a></li>
+ <li><a shape="rect" href="kmeans.html#tut.kmeans.initialization">Initialization options</a></li>
+ <li><a shape="rect" href="kmeans.html#tut.kmeans.algorithm">Types of implemented KMeans algorithms</a></li>
+</ul>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h1 id="tut.kmeans.introduction">KMeans</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>KMeans is a method for finding clusters in a dataset given a particular
+distance metric.</p>
+
+<p>Consider a dataset containing 1000 randomly sampled points in 2-D.</p>
+
+<div class="highlight"><pre><span class="n">N</span>         <span class="p">=</span> <span class="mi">5000</span> <span class="p">;</span>
+<span class="n">dimension</span> <span class="p">=</span> <span class="mi">2</span> <span class="p">;</span>
+<span class="n">data</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+
+
+<p>If one wants to split the data points data into 30 clusters, 
+the ongoing procedure could be invoked:</p>
+
+<div class="highlight"><pre><span class="n">numClusters</span> <span class="p">=</span> <span class="mi">30</span> <span class="p">;</span>
+<span class="p">[</span><span class="n">centers</span><span class="p">,</span> <span class="n">assignments</span><span class="p">]</span> <span class="p">=</span> <span class="n">vl_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">numClusters</span><span class="p">);</span>
+</pre></div>
+
+
+<p>After this, the centers of individual clusters
+are saved in the <code>centers</code> variable. If a user
+wants to find the assignments of data points to clusters, then
+he or she should take a look on the <code>assignments</code>
+variable which is a <code>N</code> element vector holding
+an index of a cluster center corresponding to each
+data point.</p>
+
+<div class="figure">
+  <image src="../demo/kmeans_2d_rand.jpg"></image>
+  <div class="caption">KMeans clustering of 5000 randomly sampled data points. 
+                       The black dots are centers of each cluster.
+  </div>
+</div>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h1 id="tut.kmeans.initialization">Initialization</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>The KMeans algorithm in its original form initializes the centers of
+clusters to a <code>numClusters</code> sized subset of data points.
+After this initialization the algorithm runs iterative procces which
+outputs the refined centers of cllusters.</p>
+
+<p>The original random initialization process can be improved
+using so called <b>kmeans++</b> method. This procedure
+picks first center randomly, and then other centers are picked
+from data points, such that the probability of their selection
+is larger with increasing distance from already picked centers.</p>
+
+<p>This method could improve the speed of convergence as well
+as the quality of the final local minimum of the function,
+which KMeans minimizes. </p>
+
+<p><b>kmeans++</b> initialization can be turned on by specifying
+the <code>'Initialization'</code> parameter: </p>
+
+<div class="highlight"><pre><span class="p">[</span><span class="n">centers</span><span class="p">,</span> <span class="n">assignments</span><span class="p">]</span> <span class="p">=</span> <span class="n">vl_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">numClusters</span><span class="p">,</span><span class="s">&#39;Initialization&#39;</span><span class="p">,</span><span class="s">&#39;plusplus&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<h1 id="tut.kmeans.algorithm">Algorithm selection</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>Appart from the original KMeans algorithm proposed by Lloyd,
+also the Elkan and ANN methods could be used to speed up the process of
+finding the cluster centers.</p>
+
+<p><b>Lloyd</b> is the original method of finding the nearest cluster
+for each point. Basically, it is a naive computation of each
+point-to-center distance followed by picking the minimum of these
+computed values.</p>
+
+<p><b>Elkan</b> is almost the same approach as Lloyd but achieves
+a speedup by skipping as much distance computations as possible,
+by using the property of each distance metric called triangle
+inequality. </p>
+
+<p><b>ANN</b> uses randomized Approximate nearest neighbors
+KD-Tree forests to find the point-to-cluster correspondences. </p>
+
+<p>These optimization methods can be enabled by setting the 
+<code>'Algorithm'</code> parameter to <code>'Lloyd'</code>,
+<code>'Elkan'</code> or <code>'ANN'</code>. When using the
+<code>'ANN'</code> a user should supply the <code>'MaxNumComparisons'</code> 
+and <code>'NumTrees'</code> options to adjust the speed/accuracy of the ANN algorithm.
+(for detailed explanation on ANN KD-Tree forests see 
+<a shape="rect" href="../api/kdtree.html">KD-Trees and forests</a> page).
+</p>
+
+<p>The following benchmark shows the speed of implemented optimization methods.
+Because of the random initialization, each of the KMeans calls converges to a different local minimum
+in a different amount of iterations. Therefore we we fix the number of iterations 
+(by setting the <code>'MaxNumIterations'</code> option) to ensure the reliable measurement of ellapsed time.
+</p>
+
+<div class="highlight"><pre><span class="n">N</span> <span class="p">=</span> <span class="mi">10000</span><span class="p">;</span>
+<span class="n">numCenters</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">dimension</span> <span class="p">=</span> <span class="mi">128</span><span class="p">;</span>
+<span class="n">data</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">dimension</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+
+<span class="n">tic</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="p">=</span> <span class="n">vl_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">numCenters</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;algorithm&#39;</span><span class="p">,</span><span class="s">&#39;lloyd&#39;</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;MaxNumIterations&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">ellapsed_lloyd</span> <span class="p">=</span> <span class="n">toc</span>
+
+<span class="n">tic</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="p">=</span> <span class="n">vl_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">numCenters</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;algorithm&#39;</span><span class="p">,</span><span class="s">&#39;elkan&#39;</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;MaxNumIterations&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">ellapsed_elkan</span> <span class="p">=</span> <span class="n">toc</span>
+
+<span class="n">tic</span><span class="p">;</span>
+<span class="p">[</span><span class="n">C</span><span class="p">]</span> <span class="p">=</span> <span class="n">vl_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">numCenters</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;algorithm&#39;</span><span class="p">,</span><span class="s">&#39;ann&#39;</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;NumTrees&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;MaxNumComparisons&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="c">...</span>
+                <span class="s">&#39;MaxNumIterations&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">ellapsed_ann</span> <span class="p">=</span> <span class="n">toc</span>
+</pre></div>
+
+
+<p>The above code produces the following output:</p>
+
+<div class="highlight"><pre><span class="n">ellapsed_lloyd</span> <span class="p">=</span>
+    <span class="mf">6.9902</span>
+<span class="n">ellapsed_elkan</span> <span class="p">=</span>
+    <span class="mf">1.8153</span>
+<span class="n">ellapsed_ann</span> <span class="p">=</span>
+    <span class="mf">1.3716</span>
+</pre></div>
+
+
+<p>More detailed statistics of the speed and achieved energies could be seen in the following figure (generated by vl_demo_kmeans_ann_speed):</p>
+
+<div class="figure">
+  <image src="../demo/kmeans_speed.jpg"></image>
+  <div class="caption">Comparisons of Elkan, Lloyd and ANN 
+(expressed as a portion of maximum number of possible comparisons in KD-Tree forest) speeds and achieved energies when using serial and parallel computation.
+Also a Parallel/Serial speedup ratio is present (the experiment was run on a 4 core Intel Core i7 machine).
+  </div>
+</div>
+
+
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div> <!-- content-section -->
+  <div id="footer-section">
+    <div id="footer">
+      &copy; 2007-13 The authors of VLFeat
+    </div> <!-- footer -->
+  </div> <!-- footer section -->
+ </body>
+ <!-- Body ends -->
+</html>
+
+ 

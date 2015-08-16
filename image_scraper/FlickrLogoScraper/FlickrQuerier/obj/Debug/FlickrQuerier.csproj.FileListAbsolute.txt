@@ -1,0 +1,13 @@
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\bin\Debug\FlickrQuerier.exe.config
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\bin\Debug\FlickrQuerier.exe
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\bin\Debug\FlickrQuerier.pdb
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\bin\Debug\FlickrNet.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\obj\Debug\FlickrQuerier.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\obj\Debug\FlickrQuerier.exe
+C:\Users\Michael\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\obj\Debug\FlickrQuerier.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\bin\Debug\FlickrQuerier.exe.config
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\obj\Debug\FlickrQuerier.exe
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrQuerier\FlickrQuerier\obj\Debug\FlickrQuerier.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrLogoScraper\FlickrQuerier\bin\Debug\FlickrQuerier.exe.config
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrLogoScraper\FlickrQuerier\obj\Debug\FlickrQuerier.exe
+C:\Users\rips\Desktop\rips_2015\image_scraper\FlickrLogoScraper\FlickrQuerier\obj\Debug\FlickrQuerier.pdb

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Favicon -->
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="icon"></link>
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="shortcut icon"></link>
+  <!-- Stylesheets -->
+  <link href="../web.css" type="text/css" rel="stylesheet"></link>
+  <link href="../pygmentize.css" type="text/css" rel="stylesheet"></link>
+  <style xml:space="preserve">
+    /* fixes a conflict between Pygmentize and MathJax */
+    .MathJax .mo, .MathJax .mi {color: inherit ! important}
+  </style>
+  <title>VLFeat - Documentation - C API</title>
+  <link rel="stylesheet" type="text/css" href="../doxygen.css"></style>
+  <!-- Scripts-->
+  <script type="text/x-mathjax-config" >
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true,
+      },
+      TeX: {
+        Macros: {
+          balpha: '\\boldsymbol{\\alpha}',
+          bc: '\\mathbf{c}',
+          be: '\\mathbf{e}',
+          bg: '\\mathbf{g}',
+          bq: '\\mathbf{q}',
+          bu: '\\mathbf{u}',
+          bv: '\\mathbf{v}',
+          bw: '\\mathbf{w}',
+          bx: '\\mathbf{x}',
+          by: '\\mathbf{y}',
+          bz: '\\mathbf{z}',
+          bsigma: '\\mathbf{\\sigma}',
+          sign: '\\operatorname{sign}',
+          diag: '\\operatorname{diag}',
+          real: '\\mathbb{R}',
+        },
+        equationNumbers: { autoNumber: 'AMS' }
+      }
+     });
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- Google Custom Search -->
+  <script xml:space="preserve">
+    (function() {
+    var cx = '003215582122030917471:oq23albfeam';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <!-- Google Analytics -->
+  <script xml:space="preserve" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4936091-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+ <!-- Body Start -->
+ <body>
+  <div id="header-section">
+    <div id="header">
+      <!-- Google CSE Search Box -->
+      <div id="google" class="gcse-searchbox-only" data-resultsUrl="http://www.vlfeat.org/search.html"></div>
+      <h1><a shape="rect" href="../index.html" class="plain"><span id="vlfeat">VLFeat</span><span id="dotorg">.org</span></a></h1>
+    </div>
+  </div>
+  <div id="headbanner-section">
+    <div id="headbanner">
+      Documentation - C API
+    </div>
+  </div>
+  <div id="content-section">
+    <div id="content-wrapper">
+      <div id="sidebar"> <!-- Navigation Start -->
+        <ul>
+<li><a href="../index.html">Home</a>
+</li>
+<li><a href="../download.html">Download</a>
+</li>
+<li><a href="../doc.html">Documentation</a>
+<ul>
+<li><a href="../mdoc/mdoc.html">Matlab API</a>
+</li>
+<li><a href="index.html" class='active' >C API</a>
+</li>
+<li><a href="../man/man.html">Man pages</a>
+</li>
+</ul></li>
+<li><a href="../overview/tut.html">Tutorials</a>
+</li>
+<li><a href="../applications/apps.html">Applications</a>
+</li>
+</ul>
+      </div> <!-- sidebar -->
+      <div id="content">
+    <link rel="stylesheet" type="text/css" href="../doxygen.css"></style>
+    <script type="text/x-mathjax-config" >
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true,
+      },
+      TeX: {
+        Macros: {
+          balpha: '\\boldsymbol{\\alpha}',
+          bc: '\\mathbf{c}',
+          be: '\\mathbf{e}',
+          bg: '\\mathbf{g}',
+          bq: '\\mathbf{q}',
+          bu: '\\mathbf{u}',
+          bv: '\\mathbf{v}',
+          bw: '\\mathbf{w}',
+          bx: '\\mathbf{x}',
+          by: '\\mathbf{y}',
+          bz: '\\mathbf{z}',
+          bsigma: '\\mathbf{\\sigma}',
+          sign: '\\operatorname{sign}',
+          diag: '\\operatorname{diag}',
+          real: '\\mathbb{R}',
+        },
+        equationNumbers: { autoNumber: 'AMS' }
+      }
+     });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <div class="doxygen">
+<div>
+<!-- Generated by Doxygen 1.8.1.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle">
+<div class="title">VlLiopDesc Struct Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>LIOP Descriptor settings.  
+ <a href="structVlLiopDesc.html#details">More...</a></p>
+
+<p><code>#include &lt;liop.h&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a98a0c7ee632f3272023d29b172b51e23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a98a0c7ee632f3272023d29b172b51e23">numberOfNeighbours</a></td></tr>
+<tr class="memitem:a552ab20ef1ea9539fc17c9987d2841e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a552ab20ef1ea9539fc17c9987d2841e2">numberOfBins</a></td></tr>
+<tr class="memitem:ad1af4ad41805c5c613876e4c9d2c1065"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#ad1af4ad41805c5c613876e4c9d2c1065">pointToNeighbourRadius</a></td></tr>
+<tr class="memitem:a4dce302c3baa7d4ac2a37cf771cbe41f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a4dce302c3baa7d4ac2a37cf771cbe41f">patchSideLength</a></td></tr>
+<tr class="memitem:af588bccfc64043f7c667abaec5154d89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#af588bccfc64043f7c667abaec5154d89">patchArraySize</a></td></tr>
+<tr class="memitem:ac8205f27a13edc3542738230e61d932d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#ac8205f27a13edc3542738230e61d932d">patchRadius</a></td></tr>
+<tr class="memitem:a7fa9ecd9317d846e102f1407d1766e40"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a7fa9ecd9317d846e102f1407d1766e40">weightThreshold</a></td></tr>
+<tr class="memitem:a8f88350832faa5cd68393270d85ac16d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#ac13bd3cc913e1da576e189a3ec8d66fc">vl_uindex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a8f88350832faa5cd68393270d85ac16d">innerPatchIndexes</a></td></tr>
+<tr class="memitem:abdd57bc87405727119d391cd4e44ac95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#abdd57bc87405727119d391cd4e44ac95">innerPatchIndexesSize</a></td></tr>
+<tr class="memitem:a6a0af1df98070ef7db6863a8ea125d29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a6a0af1df98070ef7db6863a8ea125d29">liopArraySize</a></td></tr>
+<tr class="memitem:a74d489f3578f7ced04b889a106a0b12b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVlLiopBin.html">VlLiopBin</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVlLiopDesc.html#a74d489f3578f7ced04b889a106a0b12b">liopBins</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>LIOP descriptor settings necessary for computing of discriptor from ma patch </p>
+</div><hr/><h2>Field Documentation</h2>
+<a class="anchor" id="a8f88350832faa5cd68393270d85ac16d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#ac13bd3cc913e1da576e189a3ec8d66fc">vl_uindex</a>* VlLiopDesc::innerPatchIndexes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indexes of patch array that are used for descriptor computation. </p>
+
+</div>
+</div>
+<a class="anchor" id="abdd57bc87405727119d391cd4e44ac95"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a> VlLiopDesc::innerPatchIndexesSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of innerPatchIndexes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6a0af1df98070ef7db6863a8ea125d29"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a> VlLiopDesc::liopArraySize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Liop descriptor size. </p>
+
+</div>
+</div>
+<a class="anchor" id="a74d489f3578f7ced04b889a106a0b12b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVlLiopBin.html">VlLiopBin</a>** VlLiopDesc::liopBins</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array of liop bins. </p>
+
+</div>
+</div>
+<a class="anchor" id="a552ab20ef1ea9539fc17c9987d2841e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a> VlLiopDesc::numberOfBins</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of bins. </p>
+
+</div>
+</div>
+<a class="anchor" id="a98a0c7ee632f3272023d29b172b51e23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a> VlLiopDesc::numberOfNeighbours</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of neighbours. </p>
+
+</div>
+</div>
+<a class="anchor" id="af588bccfc64043f7c667abaec5154d89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a> VlLiopDesc::patchArraySize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Length of the whole path array. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac8205f27a13edc3542738230e61d932d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a8127af01f6220099c1dd4ec579f5ae09">vl_int</a> VlLiopDesc::patchRadius</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Radius of circle inside of the patch (defining are of points to be used for computation). </p>
+
+</div>
+</div>
+<a class="anchor" id="a4dce302c3baa7d4ac2a37cf771cbe41f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="host_8h.html#a0ee26101458c663510d620e3ee7e2555">vl_size</a> VlLiopDesc::patchSideLength</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Length of a patch side. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad1af4ad41805c5c613876e4c9d2c1065"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VlLiopDesc::pointToNeighbourRadius</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Point to neighbour radius (distance). </p>
+
+</div>
+</div>
+<a class="anchor" id="a7fa9ecd9317d846e102f1407d1766e40"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VlLiopDesc::weightThreshold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Weight threshold. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="liop_8h.html">liop.h</a></li>
+</ul>
+</div><!-- contents -->
+     <!-- Doc Here -->
+    </div>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div> <!-- content-section -->
+  <div id="footer-section">
+    <div id="footer">
+      &copy; 2007-13 The authors of VLFeat
+    </div> <!-- footer -->
+  </div> <!-- footer section -->
+ </body>
+ <!-- Body ends -->
+</html>

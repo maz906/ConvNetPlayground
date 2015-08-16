@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Favicon -->
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="icon"></link>
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="shortcut icon"></link>
+
+  <!-- Stylesheets -->
+  <link href="../web.css" type="text/css" rel="stylesheet"></link>
+  <link href="../pygmentize.css" type="text/css" rel="stylesheet"></link>
+  <style xml:space="preserve">
+    /* fixes a conflict between Pygmentize and MathJax */
+    .MathJax .mo, .MathJax .mi {color: inherit ! important}
+  </style>
+  <title>VLFeat - Documentation - Matlab API - SIFT - vl_liop</title>
+  
+
+  <!-- Scripts-->
+  
+
+  <!-- Google Custom Search -->
+  <script xml:space="preserve">
+    (function() {
+    var cx = '003215582122030917471:oq23albfeam';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+
+  <!-- Google Analytics -->
+  <script xml:space="preserve" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4936091-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+
+ <!-- Body Start -->
+ <body>
+  <div id="header-section">
+    <div id="header">
+      <!-- Google CSE Search Box -->
+      <div id="google" class="gcse-searchbox-only" data-resultsUrl="http://www.vlfeat.org/search.html"></div>
+      <h1><a shape="rect" href="../index.html" class="plain"><span id="vlfeat">VLFeat</span><span id="dotorg">.org</span></a></h1>
+    </div>
+  </div>
+  <div id="headbanner-section">
+    <div id="headbanner">
+      Documentation - Matlab API - SIFT - vl_liop
+    </div>
+  </div>
+  <div id="content-section">
+    <div id="content-wrapper">
+      <div id="sidebar"> <!-- Navigation Start -->
+        <ul>
+<li><a href="../index.html">Home</a>
+</li>
+<li><a href="../download.html">Download</a>
+</li>
+<li><a href="../doc.html">Documentation</a>
+<ul>
+<li><a href="mdoc.html">Matlab API</a>
+</li>
+<li><a href="../api/index.html">C API</a>
+</li>
+<li><a href="../man/man.html">Man pages</a>
+</li>
+</ul></li>
+<li><a href="../overview/tut.html">Tutorials</a>
+</li>
+<li><a href="../applications/apps.html">Applications</a>
+</li>
+</ul>
+
+      </div> <!-- sidebar -->
+      <div id="content">
+        <div class="mdoc">
+<ul class="breadcrumb"><li><a href="mdoc.html">Index</a></li><li><a href="vl_frame2oell.html">Prev</a></li><li><a href="vl_phow.html">Next</a></li></ul><div class="documentation"><p>
+D = <a href="vl_liop.html">VL_LIOP</a>(I) compute the Liop descriptor of an image I.
+I is a square patch of an odd side length. Pixels belonging
+to the area of incircle of the patch will be used for
+computation. D is a column vector containing the liop
+descriptor of I. Implementation according to [1].
+</p><p>
+Use <a href="vl_covdet.html">VL_COVDET</a>() for computation of Liop descriptor from features frames.
+</p><p>
+<a href="vl_liop.html">VL_LIOP</a>() accepts the following options:
+</p><dl><dt>
+Neighbours
+<span class="defaults">[4]</span></dt><dd><p>
+Set the number of neighbours used for computation of permutation index.
+</p></dd><dt>
+Bins
+<span class="defaults">[6]</span></dt><dd><p>
+Set the number of bins to which the points will be quintized according
+to their intensity.
+</p></dd></dl><p>
+(the final descriptor will be of length factorial(neighbours)*bins)
+</p><dl><dt>
+Radius
+<span class="defaults">[5]</span></dt><dd><p>
+Set the distance between a point and it's neighbours.
+</p></dd><dt>
+WeightThreshold
+<span class="defaults">[see below]</span></dt><dd><p>
+Set the weight threshold (i.e. how big must be the difference between
+intensities of all neighbouring points so that they influence descriptor
+value significantly).
+If not specified, the threshold is set according to the intensity values
+range:
+</p><pre>
+      1) all values &lt; 1    -&gt; [0.02]
+      2) all values &lt; 255  -&gt; [2]
+      3) other             -&gt; [maxIntensityValue * 0.02]
+</pre></dd><dt>
+Verbose
+</dt><dd><p>
+If specified, be verbose
+</p></dd><dt>
+REFERENCES
+</dt><dd><p>
+[1] Z. Wang, B. Fan, F. Wu. Local Intensity Order Pattern for feature
+</p><pre>
+    description. In ICCV, 2011
+</pre></dd></dl></div></div>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div> <!-- content-section -->
+  <div id="footer-section">
+    <div id="footer">
+      &copy; 2007-13 The authors of VLFeat
+    </div> <!-- footer -->
+  </div> <!-- footer section -->
+ </body>
+ <!-- Body ends -->
+</html>
+
+ 

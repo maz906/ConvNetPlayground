@@ -1,0 +1,12 @@
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.dll.config
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.dll
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.dll
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.pdb
+C:\Users\rips\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.dll.config
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\bin\Debug\AbstractLogoScraper.pdb
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.dll
+C:\Users\Michael\Desktop\rips_2015\image_scraper\AbstractLogoScraper\AbstractLogoScraper\obj\Debug\AbstractLogoScraper.pdb

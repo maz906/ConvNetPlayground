@@ -1,0 +1,521 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{filayer}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    We extract the outputs of each layer from the CaffeNet model based on
+the network architecture of Krizhevsky et al. for ImageNet. We'll look
+at an image with conflicting textual and visual information, and see
+what the CNN will learn at each layer.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+         \PY{k+kn}{import} \PY{n+nn}{caffe}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+         \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+         
+         \PY{c}{\PYZsh{} set the plotting parameters}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{figure.figsize}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{image.interpolation}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{nearest}\PY{l+s}{\PYZsq{}}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{image.cmap}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{gray}\PY{l+s}{\PYZsq{}}
+         
+         \PY{c}{\PYZsh{} we\PYZsq{}ll use the GoogLeNet model we fine\PYZhy{}tuned}
+         \PY{n}{caffe\PYZus{}root} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{/home/rips\PYZus{}tc/caffe/}\PY{l+s}{\PYZsq{}}
+         \PY{n}{caffe}\PY{o}{.}\PY{n}{set\PYZus{}mode\PYZus{}cpu}\PY{p}{(}\PY{p}{)}
+         \PY{n}{net} \PY{o}{=} \PY{n}{caffe}\PY{o}{.}\PY{n}{Net}\PY{p}{(}\PY{n}{caffe\PYZus{}root} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{models/google\PYZus{}logonet/deploy.prototxt}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                         \PY{n}{caffe\PYZus{}root} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{models/google\PYZus{}logonet/logonet.caffemodel}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                         \PY{n}{caffe}\PY{o}{.}\PY{n}{TEST}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} set the transformer to conform to ImageNet standard}
+         \PY{n}{transformer} \PY{o}{=} \PY{n}{caffe}\PY{o}{.}\PY{n}{io}\PY{o}{.}\PY{n}{Transformer}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{transformer}\PY{o}{.}\PY{n}{set\PYZus{}transpose}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+         \PY{n}{transformer}\PY{o}{.}\PY{n}{set\PYZus{}mean}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{n}{caffe\PYZus{}root} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{data/logos/logos\PYZus{}mean\PYZus{}deploy.npy}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                                          \PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c}{\PYZsh{} mean pixel}
+         \PY{n}{transformer}\PY{o}{.}\PY{n}{set\PYZus{}raw\PYZus{}scale}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{255}\PY{p}{)}  \PY{c}{\PYZsh{} imagenet operates on [0,255]}
+         \PY{n}{transformer}\PY{o}{.}\PY{n}{set\PYZus{}channel\PYZus{}swap}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}we\PYZsq{}ll want the labels later, so load them from text:}
+         \PY{n}{logo\PYZus{}labels} \PY{o}{=} \PY{n}{caffe\PYZus{}root} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{data/logos/index\PYZhy{}brand.txt}\PY{l+s}{\PYZsq{}}
+         \PY{n}{labels} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{n}{logo\PYZus{}labels}\PY{p}{,} \PY{n+nb}{str}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    Now, for the images. We'll also process all three images at once, so we
+set the batch to 1, since we just want to process one image quickly.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{224}\PY{p}{,} \PY{l+m+mi}{224}\PY{p}{)}
+         \PY{n}{conflict} \PY{o}{=} \PY{n}{caffe\PYZus{}root} \PY{o}{+} \PY{l+s}{\PYZsq{}}\PY{l+s}{data/logos/images/netflix/image\PYZus{}2.jpg}\PY{l+s}{\PYZsq{}}
+\end{Verbatim}
+
+    We'll want a helper function for showing us the top five labels for a
+given image, and a helper function for visualization.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{c}{\PYZsh{} return the top num\PYZus{}results of classification. default is num\PYZus{}results = 5}
+         \PY{k}{def} \PY{n+nf}{top\PYZus{}results}\PY{p}{(}\PY{n}{image\PYZus{}src}\PY{p}{,} \PY{n}{num\PYZus{}results}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+             \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{o}{.}\PY{o}{.}\PY{o}{.}\PY{p}{]} \PY{o}{=} \PY{n}{transformer}\PY{o}{.}\PY{n}{preprocess}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                 \PY{n}{caffe}\PY{o}{.}\PY{n}{io}\PY{o}{.}\PY{n}{load\PYZus{}image}\PY{p}{(}\PY{n}{image\PYZus{}src}\PY{p}{)}\PY{p}{)}
+             \PY{n}{out} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{forward}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{transformer}\PY{o}{.}\PY{n}{deprocess}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{data}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+             \PY{n}{top\PYZus{}k} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{prob}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{argsort}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{num\PYZus{}results}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+             \PY{k}{print} \PY{n}{labels}\PY{p}{[}\PY{n}{top\PYZus{}k}\PY{p}{]}
+         
+         \PY{c}{\PYZsh{} take an array of shape (n, height, width) or (n, height, width, channels)}
+         \PY{c}{\PYZsh{} and visualize each (height, width) thing in a grid of size approx. sqrt(n) by sqrt(n)}
+         \PY{k}{def} \PY{n+nf}{vis\PYZus{}square}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{padsize}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{padval}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+             \PY{n}{data} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}
+             \PY{n}{data} \PY{o}{/}\PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}
+             
+             \PY{c}{\PYZsh{} force the number of filters to be square}
+             \PY{n}{n} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ceil}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{padding} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{n} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{padsize}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{padsize}\PY{p}{)}\PY{p}{)} 
+                             \PY{o}{+} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{ndim} \PY{o}{\PYZhy{}} \PY{l+m+mi}{3}\PY{p}{)}
+             \PY{n}{data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{pad}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{padding}\PY{p}{,} \PY{n}{mode}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{constant}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{constant\PYZus{}values}\PY{o}{=}\PY{p}{(}\PY{n}{padval}\PY{p}{,} \PY{n}{padval}\PY{p}{)}\PY{p}{)}
+             
+             \PY{c}{\PYZsh{} tile the filters into an image}
+             \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{n}{n}\PY{p}{)} \PY{o}{+} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)} 
+                                                                    \PY{o}{+} \PY{n+nb}{tuple}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{data}\PY{o}{.}\PY{n}{ndim} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{p}{(}\PY{n}{n} \PY{o}{*} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{n} \PY{o}{*} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)} \PY{o}{+} \PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{:}\PY{p}{]}\PY{p}{)}
+             
+             \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+\end{Verbatim}
+
+    Let's first take a look at the conflicting image.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{n}{top\PYZus{}results}\PY{p}{(}\PY{n}{conflict}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+['105 netflix' '166 youtube' '7 android' '0 3m' '72 isuzu']
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{filayer_files/filayer_7_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Visually, this looks like an Android logo. Based on the text, one might
+say it is Netflix. The colors are also like that of YouTube and 3M. Not
+bad.
+
+Let's take a look at the filters now. Noisy filters can be an indication
+that the network didn't converge, the learning rate isn't set properly,
+insufficient regularization, etc., so we want to check for this.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{filters} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{params}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{conv1/7x7\PYZus{}s2}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{data}
+         \PY{n}{vis\PYZus{}square}\PY{p}{(}\PY{n}{filters}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{filayer_files/filayer_9_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Not that noisy! The filters are $7 \times 7$ so they're jagged mostly
+because they're enlarged. We'll spare you the pain of looking at 21
+other layers' filters. Let's look at the output of the first layer
+(first 36 only).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{n}{feat} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{conv1/7x7\PYZus{}s2}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{36}\PY{p}{]}
+         \PY{n}{vis\PYZus{}square}\PY{p}{(}\PY{n}{feat}\PY{p}{,} \PY{n}{padval}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{filayer_files/filayer_11_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    We can see that the features extracted tend to be fairly sharp, i.e.~the
+network is doing something like learning edges. We also see lots of
+features that are almost completely black (have mean zero). This
+suggests we kept the learning rate too high. Let's see the next layer.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{feat} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{pool1/3x3\PYZus{}s2}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{36}\PY{p}{]}
+         \PY{n}{vis\PYZus{}square}\PY{p}{(}\PY{n}{feat}\PY{p}{,} \PY{n}{padval}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{filayer_files/filayer_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Here the images are not as sharp, and the neural network is learning
+more ``blob-like'' structures. You can compare some of the images to see
+that different parts of the Android are being learned. Again, we see
+that a lot of the filters are dead.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{feat} \PY{o}{=} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{pool1/norm1}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{:}\PY{l+m+mi}{36}\PY{p}{]}
+         \PY{n}{vis\PYZus{}square}\PY{p}{(}\PY{n}{feat}\PY{p}{,} \PY{n}{padval}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{filayer_files/filayer_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    At least, further into the network, there's fewer dead filters. Here's
+the shape of the network.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{p}{[}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{v}\PY{o}{.}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{)} \PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{v} \PY{o+ow}{in} \PY{n}{net}\PY{o}{.}\PY{n}{blobs}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}67}]:} [('data', (1, 3, 224, 224)),
+          ('conv1/7x7\_s2', (1, 64, 112, 112)),
+          ('pool1/3x3\_s2', (1, 64, 56, 56)),
+          ('pool1/norm1', (1, 64, 56, 56)),
+          ('conv2/3x3\_reduce', (1, 64, 56, 56)),
+          ('conv2/3x3', (1, 192, 56, 56)),
+          ('conv2/norm2', (1, 192, 56, 56)),
+          ('pool2/3x3\_s2', (1, 192, 28, 28)),
+          ('pool2/3x3\_s2\_pool2/3x3\_s2\_0\_split\_0', (1, 192, 28, 28)),
+          ('pool2/3x3\_s2\_pool2/3x3\_s2\_0\_split\_1', (1, 192, 28, 28)),
+          ('pool2/3x3\_s2\_pool2/3x3\_s2\_0\_split\_2', (1, 192, 28, 28)),
+          ('pool2/3x3\_s2\_pool2/3x3\_s2\_0\_split\_3', (1, 192, 28, 28)),
+          ('inception\_3a/1x1', (1, 64, 28, 28)),
+          ('inception\_3a/3x3\_reduce', (1, 96, 28, 28)),
+          ('inception\_3a/3x3', (1, 128, 28, 28)),
+          ('inception\_3a/5x5\_reduce', (1, 16, 28, 28)),
+          ('inception\_3a/5x5', (1, 32, 28, 28)),
+          ('inception\_3a/pool', (1, 192, 28, 28)),
+          ('inception\_3a/pool\_proj', (1, 32, 28, 28)),
+          ('inception\_3a/output', (1, 256, 28, 28)),
+          ('inception\_3a/output\_inception\_3a/output\_0\_split\_0', (1, 256, 28, 28)),
+          ('inception\_3a/output\_inception\_3a/output\_0\_split\_1', (1, 256, 28, 28)),
+          ('inception\_3a/output\_inception\_3a/output\_0\_split\_2', (1, 256, 28, 28)),
+          ('inception\_3a/output\_inception\_3a/output\_0\_split\_3', (1, 256, 28, 28)),
+          ('inception\_3b/1x1', (1, 128, 28, 28)),
+          ('inception\_3b/3x3\_reduce', (1, 128, 28, 28)),
+          ('inception\_3b/3x3', (1, 192, 28, 28)),
+          ('inception\_3b/5x5\_reduce', (1, 32, 28, 28)),
+          ('inception\_3b/5x5', (1, 96, 28, 28)),
+          ('inception\_3b/pool', (1, 256, 28, 28)),
+          ('inception\_3b/pool\_proj', (1, 64, 28, 28)),
+          ('inception\_3b/output', (1, 480, 28, 28)),
+          ('pool3/3x3\_s2', (1, 480, 14, 14)),
+          ('pool3/3x3\_s2\_pool3/3x3\_s2\_0\_split\_0', (1, 480, 14, 14)),
+          ('pool3/3x3\_s2\_pool3/3x3\_s2\_0\_split\_1', (1, 480, 14, 14)),
+          ('pool3/3x3\_s2\_pool3/3x3\_s2\_0\_split\_2', (1, 480, 14, 14)),
+          ('pool3/3x3\_s2\_pool3/3x3\_s2\_0\_split\_3', (1, 480, 14, 14)),
+          ('inception\_4a/1x1', (1, 192, 14, 14)),
+          ('inception\_4a/3x3\_reduce', (1, 96, 14, 14)),
+          ('inception\_4a/3x3', (1, 208, 14, 14)),
+          ('inception\_4a/5x5\_reduce', (1, 16, 14, 14)),
+          ('inception\_4a/5x5', (1, 48, 14, 14)),
+          ('inception\_4a/pool', (1, 480, 14, 14)),
+          ('inception\_4a/pool\_proj', (1, 64, 14, 14)),
+          ('inception\_4a/output', (1, 512, 14, 14)),
+          ('inception\_4a/output\_inception\_4a/output\_0\_split\_0', (1, 512, 14, 14)),
+          ('inception\_4a/output\_inception\_4a/output\_0\_split\_1', (1, 512, 14, 14)),
+          ('inception\_4a/output\_inception\_4a/output\_0\_split\_2', (1, 512, 14, 14)),
+          ('inception\_4a/output\_inception\_4a/output\_0\_split\_3', (1, 512, 14, 14)),
+          ('inception\_4b/1x1', (1, 160, 14, 14)),
+          ('inception\_4b/3x3\_reduce', (1, 112, 14, 14)),
+          ('inception\_4b/3x3', (1, 224, 14, 14)),
+          ('inception\_4b/5x5\_reduce', (1, 24, 14, 14)),
+          ('inception\_4b/5x5', (1, 64, 14, 14)),
+          ('inception\_4b/pool', (1, 512, 14, 14)),
+          ('inception\_4b/pool\_proj', (1, 64, 14, 14)),
+          ('inception\_4b/output', (1, 512, 14, 14)),
+          ('inception\_4b/output\_inception\_4b/output\_0\_split\_0', (1, 512, 14, 14)),
+          ('inception\_4b/output\_inception\_4b/output\_0\_split\_1', (1, 512, 14, 14)),
+          ('inception\_4b/output\_inception\_4b/output\_0\_split\_2', (1, 512, 14, 14)),
+          ('inception\_4b/output\_inception\_4b/output\_0\_split\_3', (1, 512, 14, 14)),
+          ('inception\_4c/1x1', (1, 128, 14, 14)),
+          ('inception\_4c/3x3\_reduce', (1, 128, 14, 14)),
+          ('inception\_4c/3x3', (1, 256, 14, 14)),
+          ('inception\_4c/5x5\_reduce', (1, 24, 14, 14)),
+          ('inception\_4c/5x5', (1, 64, 14, 14)),
+          ('inception\_4c/pool', (1, 512, 14, 14)),
+          ('inception\_4c/pool\_proj', (1, 64, 14, 14)),
+          ('inception\_4c/output', (1, 512, 14, 14)),
+          ('inception\_4c/output\_inception\_4c/output\_0\_split\_0', (1, 512, 14, 14)),
+          ('inception\_4c/output\_inception\_4c/output\_0\_split\_1', (1, 512, 14, 14)),
+          ('inception\_4c/output\_inception\_4c/output\_0\_split\_2', (1, 512, 14, 14)),
+          ('inception\_4c/output\_inception\_4c/output\_0\_split\_3', (1, 512, 14, 14)),
+          ('inception\_4d/1x1', (1, 112, 14, 14)),
+          ('inception\_4d/3x3\_reduce', (1, 144, 14, 14)),
+          ('inception\_4d/3x3', (1, 288, 14, 14)),
+          ('inception\_4d/5x5\_reduce', (1, 32, 14, 14)),
+          ('inception\_4d/5x5', (1, 64, 14, 14)),
+          ('inception\_4d/pool', (1, 512, 14, 14)),
+          ('inception\_4d/pool\_proj', (1, 64, 14, 14)),
+          ('inception\_4d/output', (1, 528, 14, 14)),
+          ('inception\_4d/output\_inception\_4d/output\_0\_split\_0', (1, 528, 14, 14)),
+          ('inception\_4d/output\_inception\_4d/output\_0\_split\_1', (1, 528, 14, 14)),
+          ('inception\_4d/output\_inception\_4d/output\_0\_split\_2', (1, 528, 14, 14)),
+          ('inception\_4d/output\_inception\_4d/output\_0\_split\_3', (1, 528, 14, 14)),
+          ('inception\_4e/1x1', (1, 256, 14, 14)),
+          ('inception\_4e/3x3\_reduce', (1, 160, 14, 14)),
+          ('inception\_4e/3x3', (1, 320, 14, 14)),
+          ('inception\_4e/5x5\_reduce', (1, 32, 14, 14)),
+          ('inception\_4e/5x5', (1, 128, 14, 14)),
+          ('inception\_4e/pool', (1, 528, 14, 14)),
+          ('inception\_4e/pool\_proj', (1, 128, 14, 14)),
+          ('inception\_4e/output', (1, 832, 14, 14)),
+          ('pool4/3x3\_s2', (1, 832, 7, 7)),
+          ('pool4/3x3\_s2\_pool4/3x3\_s2\_0\_split\_0', (1, 832, 7, 7)),
+          ('pool4/3x3\_s2\_pool4/3x3\_s2\_0\_split\_1', (1, 832, 7, 7)),
+          ('pool4/3x3\_s2\_pool4/3x3\_s2\_0\_split\_2', (1, 832, 7, 7)),
+          ('pool4/3x3\_s2\_pool4/3x3\_s2\_0\_split\_3', (1, 832, 7, 7)),
+          ('inception\_5a/1x1', (1, 256, 7, 7)),
+          ('inception\_5a/3x3\_reduce', (1, 160, 7, 7)),
+          ('inception\_5a/3x3', (1, 320, 7, 7)),
+          ('inception\_5a/5x5\_reduce', (1, 32, 7, 7)),
+          ('inception\_5a/5x5', (1, 128, 7, 7)),
+          ('inception\_5a/pool', (1, 832, 7, 7)),
+          ('inception\_5a/pool\_proj', (1, 128, 7, 7)),
+          ('inception\_5a/output', (1, 832, 7, 7)),
+          ('inception\_5a/output\_inception\_5a/output\_0\_split\_0', (1, 832, 7, 7)),
+          ('inception\_5a/output\_inception\_5a/output\_0\_split\_1', (1, 832, 7, 7)),
+          ('inception\_5a/output\_inception\_5a/output\_0\_split\_2', (1, 832, 7, 7)),
+          ('inception\_5a/output\_inception\_5a/output\_0\_split\_3', (1, 832, 7, 7)),
+          ('inception\_5b/1x1', (1, 384, 7, 7)),
+          ('inception\_5b/3x3\_reduce', (1, 192, 7, 7)),
+          ('inception\_5b/3x3', (1, 384, 7, 7)),
+          ('inception\_5b/5x5\_reduce', (1, 48, 7, 7)),
+          ('inception\_5b/5x5', (1, 128, 7, 7)),
+          ('inception\_5b/pool', (1, 832, 7, 7)),
+          ('inception\_5b/pool\_proj', (1, 128, 7, 7)),
+          ('inception\_5b/output', (1, 1024, 7, 7)),
+          ('pool5/7x7\_s1', (1, 1024, 1, 1)),
+          ('loss3/classifier\_logos', (1, 167)),
+          ('prob', (1, 167))]
+\end{Verbatim}
+        
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

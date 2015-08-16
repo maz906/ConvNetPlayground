@@ -1,0 +1,43 @@
+#!/bin/bash
+#assume you have already run CreateIndexResize.m for 10 validation parts
+
+#root to the caffe directory
+root="."
+#path to the solver file
+solver="$root/models/finetune_logos/solver.prototxt" 
+#path to the AlexNet pretrained weights file
+weights="$root/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel"
+#path to the snapshots folder
+snapshots="$root/models/finetune_logos/snapshots"
+#prefix in the solver.prototxt file to the path where snapshots go
+prefix="snapshot_prefix: "
+#path to the logos folder
+logos="$root/data/logos"
+#for each of the 10 validation pieces...
+for i in `seq 1 10`; do
+	#make the folder to store snapshots for the i-th round of cross validation
+	crov_folder="$snapshots/crov_$i"
+	if [ ! -d $crov_folder ]; then
+		mkdir $crov_folder
+	fi
+	#replace in solver.prototxt the path to which the snapshots are saved
+	sed -i 's&$prefix"$snapshots"&$prefix"$crov_folder"&g' $solver
+	#gather all but the i-th piece into train.txt.
+	#put the i-th piece into test.txt
+	for j in `seq 1 10`; do
+		if [ "$i" -ne "$j" ]; then
+			#conCATenate
+			cat $logos/crov_$j.txt >> $logos/train.txt
+			cat $logos/cnn/new.txt >> $logos/train.txt
+		else
+			cat $logos/crov_$j.txt >> $logos/test.txt
+		fi
+	done
+	#train!!!!!!!!!!!!!!! and save to log file in $crov_folder
+	./$root/build/tools/caffe train -solver $solver -weights $weights -gpu 0 2>&1 | tee $crov_folder/caffe-train.log
+
+	rm $logos/train.txt $logos/test.txt
+	#switch the snapshot folder in solver.prototxt back to
+	#$snapshots
+	sed -i 's&$prefix"$crov_folder"&$prefix"$snapshots"&g' $solver
+done

@@ -1,0 +1,7 @@
+{
+    "server_test": {
+        "solver": "models/finetune_logos/deploy.prototxt",
+        "snapshot": "models/finetune_logos/snapshots/crov_1/snapshots_iter_240000.caffemodel",
+        "mean_file": "python/caffe/imagenet/ilsvrc_2012_mean.npy"
+    }
+}

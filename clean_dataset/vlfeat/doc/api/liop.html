@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Favicon -->
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="icon"></link>
+  <link href="../images/vl_blue.ico" type="image/x-icon" rel="shortcut icon"></link>
+  <!-- Stylesheets -->
+  <link href="../web.css" type="text/css" rel="stylesheet"></link>
+  <link href="../pygmentize.css" type="text/css" rel="stylesheet"></link>
+  <style xml:space="preserve">
+    /* fixes a conflict between Pygmentize and MathJax */
+    .MathJax .mo, .MathJax .mi {color: inherit ! important}
+  </style>
+  <title>VLFeat - Documentation - C API</title>
+  <link rel="stylesheet" type="text/css" href="../doxygen.css"></style>
+  <!-- Scripts-->
+  <script type="text/x-mathjax-config" >
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true,
+      },
+      TeX: {
+        Macros: {
+          balpha: '\\boldsymbol{\\alpha}',
+          bc: '\\mathbf{c}',
+          be: '\\mathbf{e}',
+          bg: '\\mathbf{g}',
+          bq: '\\mathbf{q}',
+          bu: '\\mathbf{u}',
+          bv: '\\mathbf{v}',
+          bw: '\\mathbf{w}',
+          bx: '\\mathbf{x}',
+          by: '\\mathbf{y}',
+          bz: '\\mathbf{z}',
+          bsigma: '\\mathbf{\\sigma}',
+          sign: '\\operatorname{sign}',
+          diag: '\\operatorname{diag}',
+          real: '\\mathbb{R}',
+        },
+        equationNumbers: { autoNumber: 'AMS' }
+      }
+     });
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- Google Custom Search -->
+  <script xml:space="preserve">
+    (function() {
+    var cx = '003215582122030917471:oq23albfeam';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <!-- Google Analytics -->
+  <script xml:space="preserve" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4936091-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+ <!-- Body Start -->
+ <body>
+  <div id="header-section">
+    <div id="header">
+      <!-- Google CSE Search Box -->
+      <div id="google" class="gcse-searchbox-only" data-resultsUrl="http://www.vlfeat.org/search.html"></div>
+      <h1><a shape="rect" href="../index.html" class="plain"><span id="vlfeat">VLFeat</span><span id="dotorg">.org</span></a></h1>
+    </div>
+  </div>
+  <div id="headbanner-section">
+    <div id="headbanner">
+      Documentation - C API
+    </div>
+  </div>
+  <div id="content-section">
+    <div id="content-wrapper">
+      <div id="sidebar"> <!-- Navigation Start -->
+        <ul>
+<li><a href="../index.html">Home</a>
+</li>
+<li><a href="../download.html">Download</a>
+</li>
+<li><a href="../doc.html">Documentation</a>
+<ul>
+<li><a href="../mdoc/mdoc.html">Matlab API</a>
+</li>
+<li><a href="index.html" class='active' >C API</a>
+</li>
+<li><a href="../man/man.html">Man pages</a>
+</li>
+</ul></li>
+<li><a href="../overview/tut.html">Tutorials</a>
+</li>
+<li><a href="../applications/apps.html">Applications</a>
+</li>
+</ul>
+      </div> <!-- sidebar -->
+      <div id="content">
+    <link rel="stylesheet" type="text/css" href="../doxygen.css"></style>
+    <script type="text/x-mathjax-config" >
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      processEscapes: true,
+      },
+      TeX: {
+        Macros: {
+          balpha: '\\boldsymbol{\\alpha}',
+          bc: '\\mathbf{c}',
+          be: '\\mathbf{e}',
+          bg: '\\mathbf{g}',
+          bq: '\\mathbf{q}',
+          bu: '\\mathbf{u}',
+          bv: '\\mathbf{v}',
+          bw: '\\mathbf{w}',
+          bx: '\\mathbf{x}',
+          by: '\\mathbf{y}',
+          bz: '\\mathbf{z}',
+          bsigma: '\\mathbf{\\sigma}',
+          sign: '\\operatorname{sign}',
+          diag: '\\operatorname{diag}',
+          real: '\\mathbb{R}',
+        },
+        equationNumbers: { autoNumber: 'AMS' }
+      }
+     });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <div class="doxygen">
+<div>
+<!-- Generated by Doxygen 1.8.1.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Local Intensity Order Pattern descriptor </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Author:</dt><dd>Hana Sarbortova</dd></dl>
+<p><a class="el" href="liop_8h.html">liop.h</a> implements Local Intensity Order Pattern descriptor (LIOP) as proposed in <a class="el" href="citelist.html#CITEREF_wang11local">[24]</a></p>
+<p>Please see <a class="el" href="liop-fundamentals.html">LIOP fundamentals</a> for a technical description of LIOP descriptor.</p>
+<h1><a class="anchor" id="liop-starting"></a>
+Getting started</h1>
+<p>The Following code demonstrates how tow to use <a class="el" href="liop_8h.html">liop.h</a> in the C programming language in order to compute liop descriptor from a patch.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="liop_8h.html" title="Local Intensity Order Pattern descriptor (Local Intensity Order Pattern descriptor)">vl/liop.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Create a new object instance (these numbers coresponds to parameter</span></div>
+<div class="line"><span class="comment">// values proposed by authors of the paper, except for 41)</span></div>
+<div class="line"><a class="code" href="structVlLiopDesc.html" title="LIOP Descriptor settings.">VlLiopDesc</a> * liop = <a class="code" href="liop_8c.html#a6d180efa3cb55ce55638d1b83ac163b9" title="Create a new object instance.">vl_liopdesc_new</a>(4,6,6,5,41);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// allocate the descriptor array</span></div>
+<div class="line"><span class="keywordtype">float</span> * desc = <a class="code" href="generic_8c.html#a9f0d2ab48ad66f0588c89a3e526044ed" title="Allocate a memory block.">vl_malloc</a>(<span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)*liop-&gt;<a class="code" href="structVlLiopDesc.html#a6a0af1df98070ef7db6863a8ea125d29">liopArraySize</a>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// compute descriptor from a patch (in this case, the patch must be</span></div>
+<div class="line"><span class="comment">// an array of length 41*41=1681)</span></div>
+<div class="line"><a class="code" href="liop_8c.html#a7b17b62f1e344e69eb96005e90548e7b" title="Compute liop descriptor for a patch.">compute_liop_descriptor</a>(liop, patch, desc);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// delete object instance</span></div>
+<div class="line"><a class="code" href="liop_8c.html#a2e765f1f59a64454f05999de06e48d28" title="Delete object instance.">vl_liopdesc_delete</a>(liop);</div>
+</div><!-- fragment --><p>Not all pixels from the patch will contribute to the descriptor as sample points. The sample points belong to the area of the inner circle, as all neighbours of sample points has to be computed from the patch. Please see the image below for better understanding.</p>
+<div class="image">
+<img src="liop-patch-layout.png" alt="liop-patch-layout.png"/>
+<div class="caption">
+LIOP patch layout</div></div>
+</div></div><!-- contents -->
+     <!-- Doc Here -->
+    </div>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+  </div> <!-- content-section -->
+  <div id="footer-section">
+    <div id="footer">
+      &copy; 2007-13 The authors of VLFeat
+    </div> <!-- footer -->
+  </div> <!-- footer section -->
+ </body>
+ <!-- Body ends -->
+</html>

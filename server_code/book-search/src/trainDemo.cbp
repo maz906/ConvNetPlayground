@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="trainDemo" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/sun/logo-code/book-search/src" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/sun/logo-code/book-search/src" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/sun/logo-code/book-search/src" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="trainDemo">
+         <Option output="/home/sun/logo-code/book-search/src/trainDemo" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sun/logo-code/book-search/src" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.6" />
+            <Add directory="/usr/include/c++/4.6/backward" />
+            <Add directory="/usr/include/c++/4.6/x86_64-linux-gnu/." />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 trainDemo" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="trainDemo/fast">
+         <Option output="/home/sun/logo-code/book-search/src/trainDemo" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/sun/logo-code/book-search/src" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.6" />
+            <Add directory="/usr/include/c++/4.6/backward" />
+            <Add directory="/usr/include/c++/4.6/x86_64-linux-gnu/." />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 trainDemo/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/sun/logo-code/book-search/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccDistance.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccHKmeans.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccInvertedFile.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccKdt.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccLsh.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccNormalize.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/imgretrieval.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/pyimret.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/trainDemo.cpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccDistance.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccHKmeans.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccInvertedFile.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccKdt.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccLsh.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/ccNormalize.hpp">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/imgretrieval.h">
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/sun/logo-code/book-search/src/../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
