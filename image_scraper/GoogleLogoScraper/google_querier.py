@@ -29,10 +29,7 @@ class GoogleQuerier:
 		spam, robots, macro programs, and Internet agents);
 	"""
 	image_count = 0
-	api_to_engineID = {'AIzaSyA2gulOuoO-zW79Pzt-xz97wMQuSSZ3t1s':'012049976034714812121:zz6ggm1nvo8', \
-						'AIzaSyCwAFypweqyrX0qS45dUGY44BOkzxE1g9E': '004183340223802383764:62a1o0gt7ss', \
-						'AIzaSyAWZhp9t9xRfLD0gHVIre_HinJjQRAE3qk': '012912476253704493779:3ln4zw6oxwi', \
-						'AIzaSyBajizWik4KT9mjt7WPdHvDpHyO4RZLYKY': '017305718505888063765:1r7rlj9v5rw'}
+	api_to_engineID = {'yourid' : 'yourkey'}
 	default_ext = '.png'
 	default_searchType = 'image'
 	default_num = 10 #i think 10 is the maximum possible
