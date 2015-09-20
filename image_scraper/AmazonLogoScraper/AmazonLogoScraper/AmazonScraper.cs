@@ -15,8 +15,8 @@ namespace AmazonLogoScraper
 
         public AmazonScraper()
         {
-            this.api_key = "AKIAJB22MXYA6FSASPCQ"; //this is access key ID
-            this.secret = "mC1d2UDmXR3t2weqOf9r+Ye5BBGyfGcMkOa0G5Qb"; //this is secret key
+            this.api_key = "YOURACCESSKEY"; //this is access key ID
+            this.secret = "YOURSECRETKEY"; //this is secret key
         }
         
 
